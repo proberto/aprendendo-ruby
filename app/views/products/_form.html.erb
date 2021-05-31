@@ -1,0 +1,20 @@
+<%= form_with(model: @products) do |form| %>
+    <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div class="field">
+        <%= form.label :value %>
+        <%= form.text_field :value %>
+    </div>
+
+    <div class="field">
+        <%= form.label :restaturant %>
+        <%= form.collection_select(:restaturant_id, Restaturant.order(:name), :id, :name, include_blank: true) %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit %>
+    </div>
+<% end %>
